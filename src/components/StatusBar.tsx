@@ -28,7 +28,7 @@ export function StatusBar() {
   }, []);
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 h-8 bg-bg-titlebar border-t border-border text-[12px] flex items-center justify-between px-2 select-none overflow-x-auto">
+    <div className="shrink-0 h-8 pb-[env(safe-area-inset-bottom)] bg-bg-titlebar border-t border-border text-[12px] flex items-center justify-between px-2 select-none overflow-x-auto">
       <div className="flex items-center gap-0.5">
         {SECTIONS.map((s, i) => (
           <a

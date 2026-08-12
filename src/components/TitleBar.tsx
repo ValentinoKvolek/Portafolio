@@ -1,6 +1,6 @@
 export function TitleBar() {
   return (
-    <div className="fixed top-0 inset-x-0 z-40 h-9 bg-bg-titlebar border-b border-border flex items-center px-3 text-xs text-fg-dim select-none">
+    <div className="shrink-0 h-9 bg-bg-titlebar border-b border-border flex items-center px-3 text-xs text-fg-dim select-none">
       <span className="text-green mr-2">&#9642;</span>
       <span>vfk@archlinux</span>
       <span className="mx-1">:</span>

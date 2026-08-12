@@ -9,15 +9,17 @@ import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
-    <div className="crt-overlay min-h-screen bg-bg">
+    <div className="crt-overlay h-dvh flex flex-col overflow-hidden bg-bg">
       <TitleBar />
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-16 pb-16">
-        <Hero />
-        <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ContactSection />
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-8">
+          <Hero />
+          <AboutSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <ContactSection />
+        </div>
       </main>
       <StatusBar />
     </div>
