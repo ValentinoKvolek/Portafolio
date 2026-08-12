@@ -7,7 +7,7 @@ export function ContactSection() {
       <div className="flex flex-wrap items-baseline gap-x-2 mb-4">
         <span className="text-green">&gt;</span>
         <span className="text-fg">
-          Disponible para roles full-time (Backend &amp; Data Engineer) y para proyectos freelance de desarrollo web.
+          Disponible para roles full-time (Backend &amp; Data Engineer) y para proyectos freelance de desarrollo web. También buscando acercarme a roles en Redes y Seguridad Informática.
         </span>
       </div>
       <div className="space-y-2">
