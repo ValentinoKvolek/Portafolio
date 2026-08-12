@@ -6,7 +6,7 @@ export function TitleBar() {
   const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
-    const scrollEl = document.querySelector("main");
+    const scrollEl = document.getElementById("scroll-main");
     if (!scrollEl) return;
     const onScroll = () => setAtTop(scrollEl.scrollTop <= 4);
     onScroll();
