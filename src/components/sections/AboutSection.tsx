@@ -1,12 +1,20 @@
 import { CommandLine } from "../CommandLine";
 import { profile } from "@/data/content";
 
+const bioParagraphs = profile.bio
+  .join("\n")
+  .split(/\n\s*\n/)
+  .map((p) => p.replace(/\n/g, " ").trim())
+  .filter(Boolean);
+
 export function AboutSection() {
   return (
     <CommandLine id="about" command="cat about.txt">
-      <p className="whitespace-pre-line leading-relaxed text-fg">
-        {profile.bio.join("\n")}
-      </p>
+      <div className="space-y-4 leading-relaxed text-fg">
+        {bioParagraphs.map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </div>
     </CommandLine>
   );
 }
