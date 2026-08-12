@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "vfk@portfolio:~$",
+  title: "Valentino Kvolek",
   description: "Valentino Franco Kvolek — Backend & Data Engineer",
 };
 
