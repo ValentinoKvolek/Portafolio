@@ -149,8 +149,6 @@ export const projects = [
         "El sitio está en producción en aguadaescondida.com.ar y hoy es el canal principal por el que la gente descubre el emprendimiento y hace la primera consulta antes de reservar.",
       ],
     },
-    images: [],
-    video: null,
   },
   {
     id: "corredor-meseta-sur",
@@ -174,8 +172,6 @@ export const projects = [
         "El sitio está en producción en corredormesetasur.com.ar, dándole a la iniciativa turística una presencia unificada que antes no existía.",
       ],
     },
-    images: [],
-    video: null,
   },
   {
     id: "meseta-de-somuncura",
@@ -198,8 +194,6 @@ export const projects = [
         "Todavía en desarrollo — es un repo privado por ahora. La idea es que termine siendo la guía de referencia de la región, conectando los otros dos proyectos en un solo lugar.",
       ],
     },
-    images: [],
-    video: null,
   },
   {
     id: "dycos-skills",
@@ -222,8 +216,6 @@ export const projects = [
         "Está en uso activo como herramienta interna de soporte, reduciendo el tiempo que toma diagnosticar problemas recurrentes en el ERP.",
       ],
     },
-    images: [],
-    video: null,
   },
   {
     id: "interactive-map-unlp",
@@ -245,8 +237,6 @@ export const projects = [
         "Es una herramienta que uso yo mismo y que quedó pública en GitHub para que otros estudiantes de la carrera la puedan usar también.",
       ],
     },
-    images: [],
-    video: null,
   },
   {
     id: "rustaceo-libre",
@@ -269,8 +259,6 @@ export const projects = [
         "Entregamos el proyecto completo y funcional como cierre del seminario, con el código disponible públicamente en GitHub.",
       ],
     },
-    images: [],
-    video: null,
   },
 ];
 

@@ -1,7 +1,36 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CommandLine } from "@/components/CommandLine";
 import { projects } from "@/data/content";
+
+const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
+const VIDEO_EXTENSIONS = new Set([".mp4", ".webm", ".mov"]);
+
+function getProjectMedia(slug: string) {
+  const dir = path.join(process.cwd(), "public", "projects", slug);
+  let files: string[] = [];
+  try {
+    files = fs.readdirSync(dir);
+  } catch {
+    return { images: [] as string[], video: null as string | null };
+  }
+
+  files.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  const images: string[] = [];
+  let video: string | null = null;
+  for (const file of files) {
+    const ext = path.extname(file).toLowerCase();
+    if (IMAGE_EXTENSIONS.has(ext)) {
+      images.push(`/projects/${slug}/${file}`);
+    } else if (!video && VIDEO_EXTENSIONS.has(ext)) {
+      video = `/projects/${slug}/${file}`;
+    }
+  }
+  return { images, video };
+}
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.id }));
@@ -21,6 +50,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   const { slug } = await params;
   const project = projects.find((p) => p.id === slug);
   if (!project) notFound();
+  const { images, video } = getProjectMedia(slug);
 
   return (
     <div className="mb-14">
@@ -93,12 +123,12 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
           </div>
         </CommandLine>
 
-        {(project.images.length > 0 || project.video) && (
+        {(images.length > 0 || video) && (
           <CommandLine command="ls media/">
             <div className="space-y-4">
-              {project.images.length > 0 && (
+              {images.length > 0 && (
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {project.images.map((src) => (
+                  {images.map((src) => (
                     <img
                       key={src}
                       src={src}
@@ -108,10 +138,10 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                   ))}
                 </div>
               )}
-              {project.video && (
+              {video && (
                 // eslint-disable-next-line jsx-a11y/media-has-caption
                 <video controls muted playsInline className="w-full border border-border">
-                  <source src={project.video} />
+                  <source src={video} />
                 </video>
               )}
             </div>
