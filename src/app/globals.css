@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0b0e0f;
+  --bg-raised: #101416;
+  --bg-titlebar: #161b1d;
+  --border: #262d2f;
+  --fg: #c9d1cf;
+  --fg-dim: #6b7776;
+  --fg-bright: #eef2f0;
+  --green: #4fd67a;
+  --green-bright: #8affb0;
+  --amber: #e8b464;
+  --red: #e06c75;
+  --blue: #61afef;
+  --cyan: #56c2c0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-titlebar: var(--bg-titlebar);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-dim: var(--fg-dim);
+  --color-fg-bright: var(--fg-bright);
+  --color-green: var(--green);
+  --color-green-bright: var(--green-bright);
+  --color-amber: var(--amber);
+  --color-red: var(--red);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 14px;
+}
+
+::selection {
+  background: var(--green);
+  color: var(--bg);
+}
+
+/* terminal-flavored scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-dim);
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scanline-flicker {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.04; }
+}
+/* scale down the ProfileCard when it sits inside the hero */
+.profile-card-slot .pc-card {
+  height: 62svh;
+  max-height: 365px;
+}
+.profile-card-slot .pc-details {
+  top: 1.6em;
+}
+.profile-card-slot .pc-details h3 {
+  font-size: min(3.4svh, 1.65em);
+  white-space: nowrap;
+}
+.profile-card-slot .pc-details p {
+  font-size: 13px;
+}
+.profile-card-slot .pc-user-info {
+  --ui-inset: 14px;
+  padding: 10px 12px;
+  gap: 8px;
+}
+.profile-card-slot .pc-mini-avatar {
+  width: 32px;
+  height: 32px;
+}
+.profile-card-slot .pc-handle {
+  font-size: 12px;
+}
+.profile-card-slot .pc-status {
+  font-size: 10px;
+}
+.profile-card-slot .pc-contact-btn {
+  padding: 7px 12px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.crt-overlay::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(79, 214, 122, 0.06) 0px,
+    rgba(79, 214, 122, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-flicker 4s ease-in-out infinite;
+  z-index: 50;
 }
