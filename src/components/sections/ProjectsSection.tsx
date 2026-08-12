@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CommandLine } from "../CommandLine";
 import { projects } from "@/data/content";
 
@@ -8,8 +9,13 @@ export function ProjectsSection() {
         {projects.map((p) => (
           <div
             key={p.id}
-            className="border border-border bg-bg-raised p-4 hover:border-green/60 transition-colors"
+            className="relative border border-border bg-bg-raised p-4 hover:border-green/60 transition-colors"
           >
+            <Link
+              href={`/projects/${p.id}`}
+              className="absolute inset-0 z-0"
+              aria-label={`Ver detalle de ${p.name}`}
+            />
             <div className="flex items-center justify-between gap-2">
               <span className="text-blue text-sm">{p.dir}</span>
               <span
@@ -39,7 +45,7 @@ export function ProjectsSection() {
                 href={p.link}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block mt-3 text-sm text-green hover:text-green-bright hover:underline"
+                className="relative z-10 inline-block mt-3 text-sm text-green hover:text-green-bright hover:underline"
               >
                 &rarr; {p.linkLabel}
               </a>

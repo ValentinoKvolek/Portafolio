@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const SECTIONS = [
   { id: "about", label: "about" },
@@ -12,6 +14,7 @@ const SECTIONS = [
 
 export function StatusBar() {
   const [time, setTime] = useState("");
+  const isHome = usePathname() === "/";
 
   useEffect(() => {
     const update = () =>
@@ -30,17 +33,31 @@ export function StatusBar() {
   return (
     <div className="shrink-0 h-8 pb-[env(safe-area-inset-bottom)] bg-bg-titlebar border-t border-border text-[12px] flex items-center justify-between px-2 select-none overflow-x-auto">
       <div className="flex items-center gap-0.5">
-        {SECTIONS.map((s, i) => (
-          <a
-            key={s.id}
-            href={`#${s.id}`}
-            className={`px-2 py-1 hover:text-bg hover:bg-green transition-colors whitespace-nowrap ${
-              s.id === "contact" ? "text-green" : "text-fg-dim"
-            }`}
-          >
-            {i + 1}:{s.label}
-          </a>
-        ))}
+        {SECTIONS.map((s, i) => {
+          const linkClassName = `px-2 py-1 hover:text-bg hover:bg-green transition-colors whitespace-nowrap ${
+            s.id === "contact" ? "text-green" : "text-fg-dim"
+          }`;
+          if (isHome) {
+            return (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={linkClassName}
+              >
+                {i + 1}:{s.label}
+              </a>
+            );
+          }
+          return (
+            <Link key={s.id} href={`/#${s.id}`} className={linkClassName}>
+              {i + 1}:{s.label}
+            </Link>
+          );
+        })}
       </div>
       <div className="flex items-center gap-2 text-fg-dim pr-1 whitespace-nowrap">
         <span className="text-amber">&#9679;</span>

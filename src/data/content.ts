@@ -136,6 +136,21 @@ export const projects = [
     link: "https://aguadaescondida.com.ar",
     linkLabel: "aguadaescondida.com.ar",
     status: "live",
+    story: {
+      problem: [
+        "Aguada Escondida es un emprendimiento de astroturismo en plena Meseta de Somuncurá, uno de los cielos más oscuros del país (Bortle 1), pero no tenía presencia online: sin sitio, dependían del boca en boca y de redes sociales para que la gente supiera que existían y confiara en reservar una estadía a horas de la ciudad más cercana.",
+        "El desafío no era solo mostrar información, sino transmitir algo difícil de poner en palabras: la sensación de silencio y oscuridad absoluta que hace único al lugar, y generar la confianza necesaria para que alguien reserve sin haber estado nunca ahí.",
+      ],
+      process: [
+        "Arranqué el proyecto desde cero con el usuario: reuniones para entender qué querían comunicar, qué los diferenciaba de otras propuestas de turismo rural y qué información necesitaba ver un visitante antes de decidirse a viajar.",
+        "Construí el sitio con React y Next.js, priorizando fotografía de cielo nocturno y una narrativa simple centrada en la experiencia (el silencio, la oscuridad, la naturaleza) antes que en una lista fría de servicios, con un flujo de contacto directo para consultas y reservas.",
+      ],
+      outcome: [
+        "El sitio está en producción en aguadaescondida.com.ar y hoy es el canal principal por el que la gente descubre el emprendimiento y hace la primera consulta antes de reservar.",
+      ],
+    },
+    images: [],
+    video: null,
   },
   {
     id: "corredor-meseta-sur",
@@ -146,6 +161,21 @@ export const projects = [
     link: "https://corredormesetasur.com.ar",
     linkLabel: "corredormesetasur.com.ar",
     status: "live",
+    story: {
+      problem: [
+        "Corredor Meseta Sur es una ruta turística de 179km que conecta la costa atlántica rionegrina con la meseta de Somuncurá, pensada para poner en el mapa a varias localidades chicas que individualmente no tienen la escala para atraer turismo por su cuenta.",
+        "El problema era de coordinación tanto como de diseño: había que representar un recorrido de varios días y varios pueblos distintos en un solo sitio, sin que se sintiera como una lista desordenada de lugares sueltos.",
+      ],
+      process: [
+        "Trabajé el sitio como una extensión natural de lo aprendido en Aguada Escondida, pero resolviendo un problema distinto: en vez de un único destino, había que guiar al visitante a través de un corredor, con información clara de distancias, paradas y qué esperar en cada tramo.",
+        "Usé React y Next.js para armar una estructura de recorrido navegable, con foco en fotografía del cielo nocturno de la zona (uno de los más oscuros de Argentina) como hilo conductor visual entre las distintas paradas del corredor.",
+      ],
+      outcome: [
+        "El sitio está en producción en corredormesetasur.com.ar, dándole a la iniciativa turística una presencia unificada que antes no existía.",
+      ],
+    },
+    images: [],
+    video: null,
   },
   {
     id: "meseta-de-somuncura",
@@ -156,6 +186,20 @@ export const projects = [
     link: null,
     linkLabel: "repo privado",
     status: "dev",
+    story: {
+      problem: [
+        "Después de Aguada Escondida y Corredor Meseta Sur quedaba un vacío: no había una guía centralizada de la región completa, con información seria (geología, ecología, cómo llegar) de cada lugar puntual dentro de la meseta.",
+      ],
+      process: [
+        "Este proyecto lo estoy armando con React, Vite y GSAP para poder trabajar animaciones y transiciones más ricas que en los sitios anteriores, ya que acá la navegación entre 16 lugares distintos necesita sentirse fluida, casi como explorar un mapa interactivo en vez de leer una lista de artículos.",
+        "Cada lugar tiene su propio artículo con datos reales de geología, ecología y acceso, así que buena parte del trabajo es también de investigación y curaduría de contenido, no solo de código.",
+      ],
+      outcome: [
+        "Todavía en desarrollo — es un repo privado por ahora. La idea es que termine siendo la guía de referencia de la región, conectando los otros dos proyectos en un solo lugar.",
+      ],
+    },
+    images: [],
+    video: null,
   },
   {
     id: "dycos-skills",
@@ -166,6 +210,20 @@ export const projects = [
     link: "https://github.com/ValentinoKvolek/dycos-skills",
     linkLabel: "github.com/ValentinoKvolek/dycos-skills",
     status: "live",
+    story: {
+      problem: [
+        "En Dycos, gran parte del soporte técnico sobre Softland Logic (el ERP que usamos con clientes como Securitas y Videojet) depende de conocimiento acumulado a mano: estructura de stored procedures, particularidades del Diccionario de Datos, flujos típicos de debugging. Ese conocimiento vive en la cabeza del equipo y es lento de transmitir a un asistente de IA genérico cada vez que se necesita ayuda.",
+      ],
+      process: [
+        "Armé una skill de Claude AI que empaqueta ese contexto específico de Softland ERP y SQL Server, para que el asistente entienda de entrada la estructura del sistema, los patrones de stored procedures que usamos y cómo encarar el debugging de flujos complejos, en vez de arrancar cada consulta desde cero.",
+        "El foco estuvo en que la skill fuera reutilizable por todo el equipo, no solo por mí, así que documenté bien los casos de uso y probé que respondiera de forma consistente ante los problemas típicos que aparecen en el día a día.",
+      ],
+      outcome: [
+        "Está en uso activo como herramienta interna de soporte, reduciendo el tiempo que toma diagnosticar problemas recurrentes en el ERP.",
+      ],
+    },
+    images: [],
+    video: null,
   },
   {
     id: "interactive-map-unlp",
@@ -176,6 +234,19 @@ export const projects = [
     link: "https://github.com/ValentinoKvolek/InteractiveMapUnlp",
     linkLabel: "github.com/ValentinoKvolek/InteractiveMapUnlp",
     status: "live",
+    story: {
+      problem: [
+        "El plan de estudios de Informática en la UNLP tiene correlatividades entre materias que no siempre son fáciles de visualizar solo mirando la resolución oficial en PDF. Como estudiante, terminaba perdiendo tiempo tratando de entender qué materias me habilitaban a cursar cuáles otras.",
+      ],
+      process: [
+        "Construí una web app con React y Vite que representa el plan de estudios completo como un mapa interactivo, donde se pueden ver de un vistazo las correlatividades reales entre materias en vez de tener que cruzar esa información manualmente.",
+      ],
+      outcome: [
+        "Es una herramienta que uso yo mismo y que quedó pública en GitHub para que otros estudiantes de la carrera la puedan usar también.",
+      ],
+    },
+    images: [],
+    video: null,
   },
   {
     id: "rustaceo-libre",
@@ -186,6 +257,20 @@ export const projects = [
     link: "https://github.com/frentuka/RustaceoLibre",
     linkLabel: "github.com/frentuka/RustaceoLibre",
     status: "live",
+    story: {
+      problem: [
+        "Como proyecto final del seminario de Rust en la facultad, el desafío en equipo (4 personas) era construir algo con peso real: un marketplace estilo MercadoLibre pero descentralizado, corriendo la lógica de publicaciones, compras y reputación en contratos inteligentes en vez de un backend tradicional.",
+      ],
+      process: [
+        "Trabajamos con Rust e Ink! para escribir los contratos inteligentes, lo que implicó pensar el modelo de datos y las reglas de negocio (publicación de productos, flujo de compra, manejo de fondos) de una forma mucho más estricta que en un desarrollo web convencional, dado que los errores en un contrato inteligente son mucho más costosos de corregir después.",
+        "Al ser un trabajo de equipo de 4, también fue un ejercicio de coordinación: dividir el sistema en módulos claros y acordar interfaces entre las partes que cada uno desarrollaba.",
+      ],
+      outcome: [
+        "Entregamos el proyecto completo y funcional como cierre del seminario, con el código disponible públicamente en GitHub.",
+      ],
+    },
+    images: [],
+    video: null,
   },
 ];
 
