@@ -3,6 +3,7 @@ import path from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CommandLine } from "@/components/CommandLine";
+import { MediaGallery } from "@/components/MediaGallery";
 import { projects } from "@/data/content";
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
@@ -125,26 +126,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
         {(images.length > 0 || video) && (
           <CommandLine command="ls media/">
-            <div className="space-y-4">
-              {images.length > 0 && (
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {images.map((src) => (
-                    <img
-                      key={src}
-                      src={src}
-                      alt={project.name}
-                      className="border border-border object-cover aspect-video w-full"
-                    />
-                  ))}
-                </div>
-              )}
-              {video && (
-                // eslint-disable-next-line jsx-a11y/media-has-caption
-                <video controls muted playsInline className="w-full border border-border">
-                  <source src={video} />
-                </video>
-              )}
-            </div>
+            <MediaGallery images={images} video={video} name={project.name} />
           </CommandLine>
         )}
       </div>
